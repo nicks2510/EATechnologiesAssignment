@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import WebApi from "../WebApi/WebApi";
+import "../App.css";
 
 function SearchBar(props) {
     const [employeSearchValue, setemployeSearchValue] = useState('');
@@ -47,9 +48,9 @@ function SearchBar(props) {
 
     return (
         <div>
-            <input type="text" placeholder="Search Employee" onChange={(e) => setemployeSearchValue(e.target.value)} value={employeSearchValue} />
+            <input className="input" type="text" placeholder="Search Employee" onChange={(e) => setemployeSearchValue(e.target.value)} value={employeSearchValue} />
             <span >
-                <button type="button" onClick={fetchData}>Search</button>
+                <button className="button" type="button" onClick={fetchData}>Search</button>
             </span>
         </div>
     )

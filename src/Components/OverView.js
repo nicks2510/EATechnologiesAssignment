@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function OverView(props) {
     return (
-        <div>
+        <div className="centre-align">
             <h1>Employee Overview</h1>
             <p>Subordinates of employee {props.location.state.name}</p>
             <ul>
