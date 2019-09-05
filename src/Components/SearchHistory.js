@@ -1,10 +1,13 @@
 import React from 'react'
 
-function SearchHistory() {
-    const [value, setValue] = React.useState('');
+function SearchHistory(props) {
     return (
-        <div>
-            
+        <div className="search-list">
+            <ul>
+                {
+                    props.data && props.data.employeeHistory && props.data.employeeHistory.map((employee) => <li key={Math.random()}>{employee}</li>)
+                }
+            </ul>
         </div>
     )
 }

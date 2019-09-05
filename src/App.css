@@ -22,3 +22,14 @@ ul {
 li{
   text-align: left
 }
+
+.search-list ul {
+  position: relative;
+  width: 59%;
+  border: 1px solid #cccc;
+  padding-inline-start: 10px;
+}
+
+.search-list ul li {
+  list-style: none;
+}
