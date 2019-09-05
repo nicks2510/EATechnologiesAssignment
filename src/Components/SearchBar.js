@@ -5,23 +5,22 @@ import "../App.css";
 function SearchBar(props) {
     const [employeSearchValue, setemployeSearchValue] = useState('');
     const [value, setValue] = React.useState(localStorage.getItem('employeeHistory') || '');
-    
-    
+
+
     // console.log(employeeHistory);
     // React.useEffect(() => {
     //     setValue(localStorage.getItem('employeeHistory'));
     //   }, [value]);
 
-      
+
     async function fetchData() {
         try {
-            // var employeeHistory=localStorage.getItem('employeeHistory');
-            
-            //employeeHistory.push(employeSearchValue);
-            var employeeHistory={employeeHistory:''};
-            if(employeeHistory)
-            employeeHistory=JSON.parse(localStorage.getItem("employeeHistory"))
-            localStorage.setItem("employeeHistory",JSON.stringify({employeeHistory: [...employeeHistory, employeSearchValue]}) );
+
+            employeeHisObj = JSON.parse(localStorage.getItem("employeeHistory"))
+            if (!employeeHisObj) {
+                var employeeHisObj = { employeeHistory: '' };
+            }
+            localStorage.setItem("employeeHistory", JSON.stringify({ 'employeeHistory': [employeSearchValue, ...employeeHisObj.employeeHistory] }));
             let response = await WebApi.checkEmployees();
             if (response.status === 200) {
                 let employeeJson = await response.json();
@@ -67,8 +66,8 @@ function SearchBar(props) {
             <span >
                 <button className="button" type="button" onClick={fetchData}>Search</button>
             </span>
-            
-            
+
+
         </div>
     )
 }
